@@ -35,8 +35,13 @@ class LoginScreen extends StatelessWidget {
               _buildText(),
               SizedBox(height: 50.0),
               // Passing function callback as constructor argument:
-              GoogleSignInButton( // New code
-                onPressed: () => print("Button pressed."), // New code
+              GoogleSignInButton(
+                onPressed: () => {
+                  // We replace the current page.
+                  // After navigating to the replacement, it's not possible
+                  // to go back to the previous screen:
+                  Navigator.of(context).pushReplacementNamed('/'),
+                }
               ),
             ],
           ),

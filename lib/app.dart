@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_recipes/ui/screens/login.dart';
+import 'package:flutter_recipes/ui/screens/home.dart';
 import 'package:flutter_recipes/ui/theme.dart';
 
 class RecipesApp extends StatelessWidget {
@@ -15,7 +16,7 @@ class RecipesApp extends StatelessWidget {
         // If you're using navigation routes, Flutter needs a base route.
         // We're going to change this route once we're ready with 
         // implementation of HomeScreen.
-        '/': (context) => LoginScreen(),
+        '/': (context) => HomeScreen(),
         '/login': (context) => LoginScreen(),
       },
     );
