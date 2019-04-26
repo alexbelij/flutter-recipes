@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_recipes/ui/screens/login.dart';
+import 'package:flutter_recipes/ui/theme.dart';
 
 class RecipesApp extends StatelessWidget {
   @override
@@ -8,6 +9,7 @@ class RecipesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Recipes',
+      theme: buildTheme(),
       initialRoute: '/login',
       routes: {
         // If you're using navigation routes, Flutter needs a base route.
