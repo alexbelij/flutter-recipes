@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_recipes/ui/widgets/google_sign_in_button.dart';
+
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,10 +34,9 @@ class LoginScreen extends StatelessWidget {
             children: <Widget>[
               _buildText(),
               SizedBox(height: 50.0),
-              MaterialButton(
-                color: Colors.white,
-                child: Text("Sign In with Google"),
-                onPressed: () => print("Button pressed."),
+              // Passing function callback as constructor argument:
+              GoogleSignInButton( // New code
+                onPressed: () => print("Button pressed."), // New code
               ),
             ],
           ),
