@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_recipes/model/recipe.dart';
+import 'package:flutter_recipes/ui/widgets/recipe_title.dart';
+import 'package:flutter_recipes/ui/widgets/recipe_image.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
@@ -72,13 +74,7 @@ class RecipeCard extends StatelessWidget {
               // creating a Stack object:
               Stack(
                 children: <Widget>[
-                  AspectRatio(
-                    aspectRatio: 16.0 / 9.0,
-                    child: Image.network(
-                      recipe.imageURL,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  RecipeImage(recipe.imageURL),
                   Positioned(
                     child: _buildFavoriteButton(),
                     top: 2.0,
@@ -86,7 +82,7 @@ class RecipeCard extends StatelessWidget {
                   ),
                 ],
               ),
-              _buildTitleSection(),
+              RecipeTitle(recipe, 15),
             ],
           ),
         ),
