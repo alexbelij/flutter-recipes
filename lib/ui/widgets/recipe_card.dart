@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_recipes/model/recipe.dart';
 import 'package:flutter_recipes/ui/widgets/recipe_title.dart';
 import 'package:flutter_recipes/ui/widgets/recipe_image.dart';
+import 'package:flutter_recipes/ui/screens/detail.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
@@ -62,7 +63,12 @@ class RecipeCard extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () => print("Tapped!"),
+      onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => new DetailScreen(recipe, inFavorites),
+            ),
+          ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
         child: Card(
