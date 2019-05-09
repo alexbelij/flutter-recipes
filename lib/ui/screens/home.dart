@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_recipes/model/recipe.dart';
 import 'package:flutter_recipes/utils/store.dart';
 import 'package:flutter_recipes/ui/widgets/recipe_card.dart';
+import 'package:flutter_recipes/ui/widgets/settings_button.dart';
 import 'package:flutter_recipes/model/state.dart';
 import 'package:flutter_recipes/state_widget.dart';
 import 'package:flutter_recipes/ui/screens/login.dart';
@@ -58,6 +59,22 @@ class HomeScreenState extends State<HomeScreen> {
         body: _buildTabsContent(),
       );
     }
+  }
+
+  Column _buildSettings() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SettingsButton(
+          Icons.exit_to_app,
+          "Log out",
+          appState.user.displayName,
+          () async {
+            await StateWidget.of(context).signOutOfGoogle();
+          },
+        ),
+      ],
+    );
   }
 
   Center _buildLoadingIndicator() {
@@ -120,7 +137,7 @@ class HomeScreenState extends State<HomeScreen> {
         _buildRecipes(recipeType: RecipeType.food),
         _buildRecipes(recipeType: RecipeType.drink),
         _buildRecipes(ids: appState.favorites),
-        Center(child: Icon(Icons.settings)),
+        _buildSettings(),
       ],
     );
   }
